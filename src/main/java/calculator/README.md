@@ -18,8 +18,15 @@ depth의 경우 if문을 사용하는 경우 1단계의 depth가 증가한다. i
 
 
 ## 구현
+- [x] `Numbers`: 입력받은 숫자들을 저장하는 엔티티
+  - [x] `checkNegative`: 객체 생성 시 음수를 체크하는 메소드를 실행시켜 예외 처리 할 수 있도록 함
+
+
 - [x] `StringAddCalculator`: splitAndSum 메소드를 통해 문자열 덧셈 계산기 기능을 수행하는 메인급 클래스
+
+
 - [x] `SplitService`: 입력받은 문자열 split하는 메소드들을 담은 클래스
-  - [x] `CustomSplit`: 입력받은 구분자를 사용해 split하는 메소드
-  - [x] `NormalSplit`: 기본 구분자를 사용해 split하는 메소드
+  - [x] `CustomSplit`: 입력받은 구분자를 사용해 split한 숫자들을 반환하는 메소드
+  - [x] `NormalSplit`: 기본 구분자를 사용해 split한 숫자들을 반환하는 메소드, 숫자가 하나뿐이라면 그대로 반환
   - [x] `splitString`: 입력받은 문자열이 어떤 구분자를 사용할지 분류하는 메소드
+  - [x] `isOnlyNumber`: 숫자 하나인지 확인하는 메소드
