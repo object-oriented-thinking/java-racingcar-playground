@@ -1,13 +1,13 @@
 package calculator.service;
 
-import java.util.Arrays;
+import calculator.domain.Numbers;
 
 public class AddService {
-    public boolean containsNeg(String[] numbers){
-        return !Arrays.stream(numbers).map(Integer::parseInt).allMatch(integer -> integer >= 0);
+    public boolean containsNegative(Numbers numbers){
+        return !numbers.getNumbers().stream().allMatch(integer -> integer >= 0);
     }
 
-    public int addAll(String[] numbers){
-        return Arrays.stream(numbers).map(Integer::parseInt).mapToInt(i -> i).sum();
+    public int addAll(Numbers numbers){
+        return numbers.getNumbers().stream().mapToInt(i -> i).sum();
     }
 }

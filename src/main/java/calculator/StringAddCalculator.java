@@ -1,5 +1,6 @@
 package calculator;
 
+import calculator.domain.Numbers;
 import calculator.service.AddService;
 import calculator.service.SplitService;
 
@@ -16,9 +17,9 @@ public class StringAddCalculator {
             return 0;
         }
 
-        String[] numbers = splitService.splitString(s);
+        Numbers numbers = splitService.splitString(s);
 
-        if(addService.containsNeg(numbers)){
+        if(addService.containsNegative(numbers)){
             throw new RuntimeException("음수가 전달되었습니다");
         }
 
