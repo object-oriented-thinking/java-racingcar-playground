@@ -38,14 +38,10 @@ public class Calculator {
     }
 
     public int getResult() {
-        return numbers.getNumbers()
-            .stream()
-            .reduce(Number::addNumber)
-            .orElseThrow(RuntimeException::new)
-            .getNumber();
+        return numbers.getResult();
     }
 
     public void printResult() {
-        System.out.println("result is " + getResult());
+        System.out.println("result is " + numbers.getResult());
     }
 }

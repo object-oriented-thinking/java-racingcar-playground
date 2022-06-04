@@ -11,7 +11,11 @@ public class Numbers {
         this.numbers = numbers;
     }
 
-    public List<Number> getNumbers() {
-        return Collections.unmodifiableList(numbers);
+    public int getResult() {
+        return numbers
+            .stream()
+            .reduce(Number::addNumber)
+            .orElseThrow(RuntimeException::new)
+            .getNumber();
     }
 }
