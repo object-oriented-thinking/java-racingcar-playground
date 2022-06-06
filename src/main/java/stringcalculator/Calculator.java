@@ -2,15 +2,13 @@ package stringcalculator;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
 public class Calculator {
 
-    private static final int CUSTOM_DELIMITER = 1;
-    private static final int NUMBERS_EXPRESSION = 2;
-    private static final String START_REGEX = "//";
-    private static final String END_REGEX = "\n";
-    private static final String OR = "|";
+    private static final Pattern PATTERN = Pattern.compile("//(.*)\n(.*)");
     private static final int LIMIT = -1;
     private final Numbers numbers;
 
@@ -18,11 +16,12 @@ public class Calculator {
         Delimiter delimiter = new Delimiter();
         String numbersExpression = expression;
 
-        if (containsCustomDelimiter(expression)) {
-            String[] splitExpression = expression.split(START_REGEX + OR + END_REGEX);
-            String customDelimiter = splitExpression[CUSTOM_DELIMITER];
+        Matcher matcher = PATTERN.matcher(expression);
+
+        if (matcher.find()) {
+            String customDelimiter = matcher.group(1);
             delimiter = new Delimiter(customDelimiter);
-            numbersExpression = splitExpression[NUMBERS_EXPRESSION];
+            numbersExpression = matcher.group(2);
         }
 
         String[] splitExpression = numbersExpression.split(delimiter.getDelimiter(), LIMIT);
@@ -31,10 +30,6 @@ public class Calculator {
             .map(Number::new).collect(Collectors.toList());
 
         this.numbers = new Numbers(numberList);
-    }
-
-    private boolean containsCustomDelimiter(String expression) {
-        return expression.contains(START_REGEX) && expression.contains(END_REGEX);
     }
 
     public int getResult() {

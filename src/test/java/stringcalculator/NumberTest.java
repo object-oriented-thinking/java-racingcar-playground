@@ -27,11 +27,11 @@ class NumberTest {
     }
 
     @Test
-    @DisplayName("숫자 이외의 값을 전달하는 경우 RuntimeException 예외가 발생한다.")
+    @DisplayName("숫자 이외의 값을 전달하는 경우 NumberFormatException 예외가 발생한다.")
     void test2_2() {
         assertThatThrownBy(
             () -> new Number("not number")
-        ).isInstanceOf(RuntimeException.class);
+        ).isInstanceOf(NumberFormatException.class);
     }
 
     @Test

@@ -14,11 +14,7 @@ public class Number {
             return;
         }
 
-        try {
-            number = Integer.parseInt(stringNumber);
-        } catch (NumberFormatException e) {
-            throw new RuntimeException("숫자 형식이어야 합니다.");
-        }
+        number = Integer.parseInt(stringNumber);
 
         if (number < 0) {
             throw new RuntimeException("음수는 사용할 수 없습니다.");

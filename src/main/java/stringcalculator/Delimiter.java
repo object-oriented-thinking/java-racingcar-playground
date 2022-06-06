@@ -2,8 +2,8 @@ package stringcalculator;
 
 public class Delimiter {
     private static final String OR = "|";
-    private static final String DELIMITER = "," + OR + ":";
     private static final String EMPTY_DELIMITER = "";
+    private static final String DELIMITER = "," + OR + ":";
     private final String delimiter;
 
     public Delimiter(String customDelimiter) {
@@ -30,4 +30,5 @@ public class Delimiter {
     public String getDelimiter() {
         return delimiter;
     }
+
 }
