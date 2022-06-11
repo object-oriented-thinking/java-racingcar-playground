@@ -11,6 +11,9 @@ public class Car {
         if(name.length()>5){
             throw new RuntimeException("자동차 이름은 5글자 이내여야 합니다.");
         }
+        if(name.isEmpty()){
+            throw new RuntimeException("자동차 이름은 공백일 수 없습니다.");
+        }
         this.name = name;
         this.location=START_LOCATION;
     }
