@@ -17,16 +17,11 @@
   - [ ] Car
     - 자동차의 이름이 5글자 초과하면 Exception 발생
     - 자동차의 이름과 위치 정보를 갖는다
-    - 생성된 random 값에 따라 전진할 수 있다
+    - forward 메소드: 생성된 random 값에 따라 전진할 수 있다
   - [ ] Cars
-    - 행위: 
-    - 상태: 게임 내의 모든 Car 객체들을 저장한다
-
-- [ ] Service
-  - [ ] ForwardAll
-    - 모든 Cars의 객체를 전진 시도한다.
-  - [ ] RankCar
-    - Car 객체들의 거리를 비교해 우승자를 결정한다.
+    - 게임 내의 모든 Car 객체들을 저장한다
+    - forwardAll 메소드: 모든 Car 객체를 전진 시도한다. 
+    - rankCar 메소드: Car 객체들의 거리를 비교해 우승자를 결정한다.
 
 - [ ] View
     - [ ] InputView
