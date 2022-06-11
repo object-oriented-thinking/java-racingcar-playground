@@ -21,12 +21,13 @@
   - [ ] Cars
     - 게임 내의 모든 Car 객체들을 저장한다
     - forwardAll 메소드: 모든 Car 객체를 전진 시도한다. 
-    - rankCar 메소드: Car 객체들의 거리를 비교해 우승자를 결정한다.
+    - maxLocation 메소드: 모든 객체의 위치 중 가장 먼 위치 반환
+    - getMaxNames 메소드: 가장 멀리간 Car 객체 이름들 반환
 
 - [ ] View
     - [ ] InputView
-      - 문자열을 입력받아 ',' 기준으로 이름마다 Car 객체 생성
-      - 게임 횟수 입력받음
+      - makeCars: 문자열을 입력받아 ',' 기준으로 이름마다 Car 객체 생성
+      - getTries: 게임 횟수 입력받음
     - [ ] OutputView
       - 현재 Car 객체들의 이름과 위치 정보를 출력
       - 최종적으로 위치값이 가장 큰 우승자(들)의 이름을 출력
