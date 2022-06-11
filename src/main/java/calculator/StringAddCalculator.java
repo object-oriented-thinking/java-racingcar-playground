@@ -5,11 +5,11 @@ import calculator.service.AddService;
 import calculator.service.SplitService;
 
 public class StringAddCalculator {
-    static SplitService splitService = new SplitService();
-    static AddService addService = new AddService();
+    private static final SplitService splitService = new SplitService();
+    private static final AddService addService = new AddService();
 
-    public static boolean isBlank(String input){
-        return input == null || input.isEmpty();
+    private static boolean isBlank(String input){
+        return input == null || input.trim().isEmpty();
     }
 
     public static int splitAndSum(String input) throws RuntimeException{
