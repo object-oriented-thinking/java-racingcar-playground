@@ -11,15 +11,18 @@ import java.util.List;
 import static racing.util.Game.CAR_QUANTITY;
 import static racing.util.Winner.ADVANCE_COUNT;
 
+/**
+ * 자동차의 전진내용과 관련된 클래스
+ */
 public class Advance {
 
     private final RandomNumberStorage randomNumberStorage;
-    private final CarStorage carCollectionsStorage;
+    private final CarStorage carStorage;
     private final List<Car> advancedCarsList = new ArrayList<>();
 
-    public Advance(RandomNumberStorage randomNumberStorage, CarStorage carCollectionsStorage) {
+    public Advance(RandomNumberStorage randomNumberStorage, CarStorage carStorage) {
         this.randomNumberStorage = randomNumberStorage;
-        this.carCollectionsStorage = carCollectionsStorage;
+        this.carStorage = carStorage;
     }
 
     public AdvanceCarStorage checkAdvance() {
@@ -40,11 +43,11 @@ public class Advance {
     }
 
     private StringBuilder getCarStorageLocations(int carCount) {
-        return carCollectionsStorage.getCars().get(carCount).getLocation();
+        return carStorage.getCars().get(carCount).getLocation();
     }
 
     private String getCarStorageNames(int carCount) {
-        return carCollectionsStorage.getCars().get(carCount).getName();
+        return carStorage.getCars().get(carCount).getName();
     }
 
     private boolean isAdvance(int carCount) {
