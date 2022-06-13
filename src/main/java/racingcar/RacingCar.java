@@ -19,11 +19,11 @@ public class RacingCar {
             throw new IllegalArgumentException("특수문자는 안됩니다.");
         }
 
-        if (name.length() > 5) {
+        if (name.trim().length() > 5) {
             throw new IllegalArgumentException("길이는 5 이하이어야 합니다.");
         }
 
-        this.name = name;
+        this.name = name.trim();
         this.distance = 0;
 
     }
@@ -47,7 +47,7 @@ public class RacingCar {
         for (int i = 0; i < distance; i++) {
             stringBuffer.append("-");
         }
-        System.out.printf("%s : %s\n", name, stringBuffer);
+        System.out.printf(" %s : %s\n", name, stringBuffer);
     }
 
     public boolean condition() {

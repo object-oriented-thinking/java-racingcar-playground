@@ -89,4 +89,10 @@ class RacingCarsTest {
             racingCars::startRacing
         );
     }
+
+    @Test
+    @DisplayName("자동차 이름이 고유해야 한다.")
+    void test9() {
+
+    }
 }
