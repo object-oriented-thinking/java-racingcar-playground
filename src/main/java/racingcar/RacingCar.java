@@ -5,16 +5,15 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class RacingCar {
+    private static final String REGEX = "[^a-zA-Z\\d]";
+    private static final Pattern PATTERN = Pattern.compile(REGEX);
     private static final Random RANDOM = new Random();
 
     private final String name;
     private int distance;
 
     public RacingCar(String name) {
-
-        String regex = "[^a-zA-Z0-9]";
-        Pattern p = Pattern.compile(regex);
-        Matcher m = p.matcher(name);
+        Matcher m = PATTERN.matcher(name);
 
         if (m.matches()) {
             throw new IllegalArgumentException("특수문자는 안됩니다.");

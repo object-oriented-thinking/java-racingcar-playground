@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class RacingCars {
-    public static final String REGEX = ",";
+    private static final String REGEX = ",";
     private final List<RacingCar> racingCars;
 
     public RacingCars(String racingCarsNames) {
