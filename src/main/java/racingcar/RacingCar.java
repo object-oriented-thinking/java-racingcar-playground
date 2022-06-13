@@ -47,14 +47,14 @@ public class RacingCar {
         for (int i = 0; i < distance; i++) {
             stringBuffer.append("-");
         }
-        System.out.printf(" %s : %s\n", name, stringBuffer);
-    }
-
-    public boolean condition() {
-        return RANDOM.nextInt(10) >= 4;
+        System.out.printf("%s : %s\n", name, stringBuffer);
     }
 
     public void go() {
         this.distance++;
+    }
+
+    private boolean condition() {
+        return RANDOM.nextInt(10) >= 4;
     }
 }

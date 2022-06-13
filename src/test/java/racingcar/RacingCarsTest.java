@@ -53,7 +53,7 @@ class RacingCarsTest {
         //when
         racingCars.printRacingStatus();
         //then
-        assertThat("pobi : \ncrong : \nhonux : \n").isEqualTo(outputStreamCaptor.toString());
+        assertThat(outputStreamCaptor.toString()).isEqualTo("pobi : \ncrong : \nhonux : \n");
     }
 
     @Test

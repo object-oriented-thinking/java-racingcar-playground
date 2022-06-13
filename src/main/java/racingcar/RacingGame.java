@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class RacingGame {
 
-    public static final Scanner SCANNER = new Scanner(System.in);
+    private static final Scanner SCANNER = new Scanner(System.in);
 
     public void startGame() {
         System.out.println("이름 입력");
@@ -20,7 +20,7 @@ public class RacingGame {
         racingCars.printWinner();
     }
 
-    public int inputCount() {
+    private int inputCount() {
         int count = SCANNER.nextInt();
         if (count < 1) {
             throw new IllegalArgumentException();
@@ -28,7 +28,7 @@ public class RacingGame {
         return count;
     }
 
-    public String inputName() {
+    private String inputName() {
         return SCANNER.nextLine();
     }
 }
