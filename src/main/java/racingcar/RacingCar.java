@@ -1,6 +1,8 @@
 package racingcar;
 
 import java.util.Random;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class RacingCar {
     private static final Random RANDOM = new Random();
@@ -9,6 +11,19 @@ public class RacingCar {
     private int distance;
 
     public RacingCar(String name) {
+
+        String regex = "[^a-zA-Z0-9]";
+        Pattern p = Pattern.compile(regex);
+        Matcher m = p.matcher(name);
+
+        if (m.matches()) {
+            throw new IllegalArgumentException("특수문자는 안됩니다.");
+        }
+
+        if (name.length() > 5) {
+            throw new IllegalArgumentException("길이는 5 이하이어야 합니다.");
+        }
+
         this.name = name;
         this.distance = 0;
 
@@ -28,12 +43,12 @@ public class RacingCar {
         }
     }
 
-    public void printRacingResult() {
+    public void printRacingStatus() {
         StringBuffer stringBuffer = new StringBuffer();
         for (int i = 0; i < distance; i++) {
             stringBuffer.append("-");
         }
-        System.out.printf("%s : %s", name, stringBuffer);
+        System.out.printf("%s : %s\n", name, stringBuffer);
     }
 
     public boolean condition() {
