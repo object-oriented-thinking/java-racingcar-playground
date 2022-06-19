@@ -14,8 +14,7 @@ public class OutputView {
 
     public void outputCars(Cars cars){
         for(Car c: cars.getCarList()){
-            System.out.print(c.getName()+" : ");
-            System.out.println(locationToLine(c.getLocation()));
+            System.out.print(c.getName()+" : "+locationToLine(c.getLocation())+"\n");
         }
         System.out.println();
     }

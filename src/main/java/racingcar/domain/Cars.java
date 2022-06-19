@@ -6,13 +6,9 @@ import java.util.stream.Collectors;
 import static java.util.Collections.max;
 
 public class Cars {
-    private final List<Car> carList;
+    private final List<Car> carList = new ArrayList<>();
 
-    public Cars() {
-        carList = new ArrayList<>();
-    }
-
-    public void add(Car car){
+    public void addCar(Car car){
         this.carList.add(car);
     }
 
@@ -25,21 +21,19 @@ public class Cars {
     }
 
     public String getMaxNames(){
-        StringBuilder result = new StringBuilder();
+        List<String> result = new ArrayList<>();
         for(Car c: carList){
             if(c.getLocation()==maxLocation()){
-                result.append(c.getName()).append(", ");
+                result.add(c.getName());
             }
         }
-        if(result.length() > 0){
-            return result.substring(0, result.length()-2);
+        if(!result.isEmpty()){
+            return String.join(",", result);
         }
-        else {
-            throw new RuntimeException("최대로 이동한 자동차를 찾을 수 없습니다.");
-        }
+        throw new RuntimeException("최대로 이동한 자동차를 찾을 수 없습니다.");
     }
 
     public List<Car> getCarList(){
-        return carList;
+        return carList.stream().collect(Collectors.collectingAndThen(Collectors.toList(), Collections::unmodifiableList));
     }
 }

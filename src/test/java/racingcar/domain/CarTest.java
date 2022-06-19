@@ -10,14 +10,6 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 public class CarTest {
     Car car;
-
-    @Test
-    @DisplayName("5글자 초과시 Exception 발생 테스트")
-    public void nameTest(){
-        String name = "sonata";
-        assertThatThrownBy(()-> car = new Car(name)).isInstanceOf(RuntimeException.class);
-    }
-
     @BeforeEach
     public void setUp(){
         String name = "jeep";
@@ -25,9 +17,10 @@ public class CarTest {
     }
 
     @Test
-    @DisplayName("클래스가 제대로 생성되는지 테스트")
-    public void nameTest2(){
-        assertThat(car).isInstanceOf(Car.class);
+    @DisplayName("5글자 초과시 Exception 발생 테스트")
+    public void nameTest(){
+        String name = "sonata";
+        assertThatThrownBy(()-> new Car(name)).isInstanceOf(RuntimeException.class);
     }
 
     @Test

@@ -11,7 +11,7 @@ public class Car {
         if(name.length()>5){
             throw new RuntimeException("자동차 이름은 5글자 이내여야 합니다.");
         }
-        if(name.isEmpty()){
+        if(name.trim().isEmpty()){
             throw new RuntimeException("자동차 이름은 공백일 수 없습니다.");
         }
         this.name = name;
@@ -20,7 +20,7 @@ public class Car {
 
     public int randomNumGenerator(){
         Random random = new Random();
-        return random.nextInt(9)+1;
+        return random.nextInt(10);
     }
 
     public void forward(){
