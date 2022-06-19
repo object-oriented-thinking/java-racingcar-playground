@@ -6,7 +6,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class SplitService {
-    Pattern p = Pattern.compile("//(.)\n(.*)");
+    private final static Pattern p = Pattern.compile("//(.)\n(.*)");
 
     public boolean isOnlyNumber(String input){
         return Integer.parseInt(input)>0;
