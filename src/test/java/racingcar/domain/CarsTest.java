@@ -11,10 +11,10 @@ public class CarsTest {
     @BeforeEach
     public void setUp(){
         cars = new Cars();
-        cars.add(new Car("ray"));
-        cars.add(new Car("audi"));
-        cars.add(new Car("benz"));
-        cars.add(new Car("tico"));
+        cars.addCar(new Car("ray"));
+        cars.addCar(new Car("audi"));
+        cars.addCar(new Car("benz"));
+        cars.addCar(new Car("tico"));
         cars.forwardAll();
     }
 

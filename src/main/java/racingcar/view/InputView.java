@@ -16,7 +16,7 @@ public class InputView {
         String[] strings = input.split(",");
         Cars cars = new Cars();
         for (String s : strings) {
-            cars.add(new Car(s));
+            cars.addCar(new Car(s));
         }
         return cars;
     }
