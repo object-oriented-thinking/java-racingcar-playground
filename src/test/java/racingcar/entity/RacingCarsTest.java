@@ -1,4 +1,4 @@
-package racingcar;
+package racingcar.entity;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
@@ -8,7 +8,8 @@ import org.junit.jupiter.api.Test;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 
-import static org.assertj.core.api.Assertions.*;
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 class RacingCarsTest {
     private final ByteArrayOutputStream outputStreamCaptor = new ByteArrayOutputStream();
@@ -36,6 +37,7 @@ class RacingCarsTest {
         assertThat(racingCars.getCars().size()).isEqualTo(3);
     }
 
+
     @Test
     @DisplayName("차동차의 이름이 하나라도 들어가지 않으면 IllegalArgumentException 예외가 발생한다.")
     void test3() {
@@ -44,6 +46,16 @@ class RacingCarsTest {
             () -> new RacingCars("")
         ).isInstanceOf(IllegalArgumentException.class);
     }
+
+    @Test
+    @DisplayName("자동차 이름에는 문자열 외에는 들어가면 안된다.")
+    void test10() {
+        //when & then
+        assertThatThrownBy(
+            () -> new RacingCars("!pobi+crong,honux")
+        ).isInstanceOf(IllegalArgumentException.class);
+    }
+
 
     @Test
     @DisplayName("각 자동차에게 움직인 거리를 출력하게 한다.")
@@ -79,15 +91,6 @@ class RacingCarsTest {
         racingCars.printWinner();
         //then
         assertThat("pobi, crong이(가) 최종 우승했습니다.").isEqualTo(outputStreamCaptor.toString());
-    }
-
-    @Test
-    @DisplayName("자동차들을 경쟁시킨다.")
-    void test8() {
-        RacingCars racingCars = new RacingCars("pobi,crong,honux");
-        Assertions.assertDoesNotThrow(
-            racingCars::startRacing
-        );
     }
 
     @Test

@@ -1,4 +1,4 @@
-package racingcar;
+package racingcar.entity;
 
 import java.util.Arrays;
 import java.util.Collections;
@@ -7,8 +7,10 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class RacingCars {
+    private static final Comparator<Car> carComparator = Comparator.comparingInt(Car::getDistance);
     private static final String REGEX = ",";
-    private final List<RacingCar> racingCars;
+    private final List<Car> racingCars;
+
 
     public RacingCars(String racingCarsNames) {
 
@@ -19,31 +21,24 @@ public class RacingCars {
         String[] strings = racingCarsNames.split(REGEX);
 
         this.racingCars = Arrays.stream(strings)
-            .map(RacingCar::new)
+            .map(Car::new)
             .collect(Collectors.toList());
     }
 
-    public List<RacingCar> getCars() {
+    public List<Car> getCars() {
         return Collections.unmodifiableList(racingCars);
     }
 
     public void printRacingStatus() {
-        racingCars.forEach(RacingCar::printRacingStatus);
+        racingCars.forEach(Car::printRacingStatus);
     }
 
     public void printWinner() {
-        Comparator<RacingCar> carComparator = Comparator.comparingInt(RacingCar::getDistance);
-        RacingCar topRankingCar = racingCars.stream().max(carComparator).orElseThrow(IllegalArgumentException::new);
-
+        Car topRankingCar = racingCars.stream().max(carComparator).orElseThrow(IllegalArgumentException::new);
         String carsName = racingCars.stream()
             .filter(racingCar -> topRankingCar.getDistance() == racingCar.getDistance())
-            .map(RacingCar::getName)
+            .map(Car::getName)
             .reduce((s, s2) -> s + ", " + s2).orElseThrow(IllegalArgumentException::new);
-
         System.out.printf("%s이(가) 최종 우승했습니다.", carsName);
-    }
-
-    public void startRacing() {
-        racingCars.forEach(RacingCar::racing);
     }
 }
