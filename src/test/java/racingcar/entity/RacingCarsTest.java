@@ -1,9 +1,10 @@
-package racingcar;
+package racingcar.entity;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import racingcar.entity.RacingCars;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;

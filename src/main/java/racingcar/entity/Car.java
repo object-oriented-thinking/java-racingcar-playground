@@ -1,8 +1,6 @@
-package racingcar;
+package racingcar.entity;
 
 import java.util.Random;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 public class Car {
 
