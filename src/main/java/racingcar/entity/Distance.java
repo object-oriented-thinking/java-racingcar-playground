@@ -5,7 +5,16 @@ import java.util.Objects;
 public class Distance {
     private final int distance;
 
+    public Distance() {
+        this.distance = 0;
+    }
+
     public Distance(int distance) {
+
+        if (distance < 0) {
+            throw new IllegalArgumentException("음수가 될 수 없습니다.");
+        }
+
         this.distance = distance;
     }
 

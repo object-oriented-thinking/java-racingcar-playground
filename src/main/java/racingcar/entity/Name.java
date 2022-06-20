@@ -5,14 +5,14 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class Name {
-    private static final String REGEX = "[^a-zA-Z\\d]";
+    private static final String REGEX = "^[a-zA-Z0-9]*$";
     private static final Pattern PATTERN = Pattern.compile(REGEX);
     private final String name;
 
     public Name(String name) {
         Matcher m = PATTERN.matcher(name);
 
-        if (m.matches()) {
+        if (!m.matches()) {
             throw new IllegalArgumentException("특수문자는 안됩니다.");
         }
 

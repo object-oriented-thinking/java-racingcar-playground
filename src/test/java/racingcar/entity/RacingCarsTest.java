@@ -37,6 +37,7 @@ class RacingCarsTest {
         assertThat(racingCars.getCars().size()).isEqualTo(3);
     }
 
+
     @Test
     @DisplayName("차동차의 이름이 하나라도 들어가지 않으면 IllegalArgumentException 예외가 발생한다.")
     void test3() {
@@ -45,6 +46,16 @@ class RacingCarsTest {
             () -> new RacingCars("")
         ).isInstanceOf(IllegalArgumentException.class);
     }
+
+    @Test
+    @DisplayName("자동차 이름에는 문자열 외에는 들어가면 안된다.")
+    void test10() {
+        //when & then
+        assertThatThrownBy(
+            () -> new RacingCars("!pobi+crong,honux")
+        ).isInstanceOf(IllegalArgumentException.class);
+    }
+
 
     @Test
     @DisplayName("각 자동차에게 움직인 거리를 출력하게 한다.")

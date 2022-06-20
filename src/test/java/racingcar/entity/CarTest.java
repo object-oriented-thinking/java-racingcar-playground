@@ -1,20 +1,16 @@
-package racingcar;
+package racingcar.entity;
 
-import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import racingcar.entity.Car;
-import racingcar.entity.RacingCars;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.core.api.Assertions.assertThatThrownBy;
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertAll;
 
-class RacingCarTest {
+class CarTest {
 
     private final ByteArrayOutputStream outputStreamCaptor = new ByteArrayOutputStream();
 
@@ -101,25 +97,6 @@ class RacingCarTest {
         racingCar.printRacingStatus();
         //then
         assertThat("name : --").isEqualTo(outputStreamCaptor.toString().trim());
-    }
-
-
-    @Test
-    @DisplayName("자동차 이름은 5자를 초과하면 IllegalArgumentException 예외를 발생한다.")
-    void test5() {
-        //when & then
-        Assertions.assertThatThrownBy(
-            () -> new Car("longName")
-        ).isInstanceOf(IllegalArgumentException.class);
-    }
-
-    @Test
-    @DisplayName("자동차 이름에는 문자열 외에는 들어가면 안된다.")
-    void test6() {
-        //when & then
-        assertThatThrownBy(
-            () -> new RacingCars("!pobi+crong,honux")
-        ).isInstanceOf(IllegalArgumentException.class);
     }
 
 }

@@ -3,15 +3,12 @@ package racingcar.entity;
 import java.util.Random;
 
 public class Car {
-
-    private static final Random RANDOM = new Random();
-
     private final Name name;
     private Distance distance;
 
     public Car(String name) {
         this.name = new Name(name);
-        this.distance = new Distance(0);
+        this.distance = new Distance();
     }
 
     public String getName() {
