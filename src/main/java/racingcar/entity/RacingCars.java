@@ -7,8 +7,10 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class RacingCars {
+    private static final Comparator<Car> carComparator = Comparator.comparingInt(Car::getDistance);
     private static final String REGEX = ",";
     private final List<Car> racingCars;
+
 
     public RacingCars(String racingCarsNames) {
 
@@ -32,14 +34,11 @@ public class RacingCars {
     }
 
     public void printWinner() {
-        Comparator<Car> carComparator = Comparator.comparingInt(Car::getDistance);
         Car topRankingCar = racingCars.stream().max(carComparator).orElseThrow(IllegalArgumentException::new);
-
         String carsName = racingCars.stream()
             .filter(racingCar -> topRankingCar.getDistance() == racingCar.getDistance())
             .map(Car::getName)
             .reduce((s, s2) -> s + ", " + s2).orElseThrow(IllegalArgumentException::new);
-
         System.out.printf("%s이(가) 최종 우승했습니다.", carsName);
     }
 }
