@@ -14,11 +14,7 @@ public class InputView {
         String input = scanner.next();
 
         String[] strings = input.split(",");
-        Cars cars = new Cars();
-        for (String s : strings) {
-            cars.addCar(new Car(s));
-        }
-        return cars;
+        return new Cars(strings);
     }
 
     public int getTries(){

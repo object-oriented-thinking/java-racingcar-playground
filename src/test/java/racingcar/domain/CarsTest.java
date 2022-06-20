@@ -10,18 +10,8 @@ public class CarsTest {
     Cars cars;
     @BeforeEach
     public void setUp(){
-        cars = new Cars();
-        cars.addCar(new Car("ray"));
-        cars.addCar(new Car("audi"));
-        cars.addCar(new Car("benz"));
-        cars.addCar(new Car("tico"));
+        cars = new Cars(new String[]{"ray", "audi", "benz", "tico"});
         cars.forwardAll();
-    }
-
-    @Test
-    @DisplayName("max 값이 정상적으로 도출되는지 확인")
-    public void maxTest(){
-        assertThat(cars.maxLocation()).isEqualTo(1);
     }
 
     @Test
@@ -29,5 +19,4 @@ public class CarsTest {
     public void getNameTest(){
         assertThat(cars.getMaxNames()).isNotNull();
     }
-
 }
