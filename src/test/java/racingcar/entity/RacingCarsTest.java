@@ -4,12 +4,12 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import racingcar.entity.RacingCars;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 
-import static org.assertj.core.api.Assertions.*;
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 class RacingCarsTest {
     private final ByteArrayOutputStream outputStreamCaptor = new ByteArrayOutputStream();

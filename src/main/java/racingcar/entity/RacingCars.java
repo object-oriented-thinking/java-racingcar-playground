@@ -1,7 +1,5 @@
 package racingcar.entity;
 
-import racingcar.entity.Car;
-
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;

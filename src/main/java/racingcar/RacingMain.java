@@ -1,12 +1,11 @@
 package racingcar;
 
-import racingcar.entity.RacingCars;
-import racingcar.util.*;
+import racingcar.util.InputClient;
+import racingcar.util.InputClientImpl;
+import racingcar.util.RacingGame;
 
 public class RacingMain {
-
     private static final InputClient inputClient = new InputClientImpl();
-    private static final MovingStrategy movingStrategy = new MovingStrategyImpl();
 
     public static void main(String[] args) {
         System.out.println("이름 입력");
@@ -18,8 +17,8 @@ public class RacingMain {
 
         System.out.println("실행 결과");
         for (int i = 0; i < count; i++) {
+            racingGame.moveCars();
             racingGame.printRacingStatus();
-            racingGame.moveCars(movingStrategy);
             System.out.println();
         }
 

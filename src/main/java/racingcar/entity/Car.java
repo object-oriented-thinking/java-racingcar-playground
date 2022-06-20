@@ -22,12 +22,6 @@ public class Car {
         return distance.getDistance();
     }
 
-    public void racing() {
-        if (condition()) {
-            go();
-        }
-    }
-
     public void racing(boolean condition) {
         if (condition) {
             go();
@@ -44,9 +38,5 @@ public class Car {
 
     public void go() {
         this.distance = new Distance(distance.getDistance() + 1);
-    }
-
-    private boolean condition() {
-        return RANDOM.nextInt(10) >= 4;
     }
 }
