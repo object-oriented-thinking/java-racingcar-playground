@@ -25,7 +25,7 @@ class RacingCarTest {
     @DisplayName("처음 생성한 자동차의 이동 거리는 0이다.")
     void test1() {
         String carName = "car";
-        RacingCar racingCar = new RacingCar(carName);
+        Car racingCar = new Car(carName);
         assertAll(
             () -> assertThat(racingCar.getDistance()).isEqualTo(0),
             () -> assertThat(racingCar.getName()).isEqualTo(carName)
@@ -36,7 +36,7 @@ class RacingCarTest {
     @DisplayName("자동차는 전진할 수 있다.")
     void test2() {
         //given
-        RacingCar racingCar = new RacingCar("car");
+        Car racingCar = new Car("car");
         assertAll(
             () -> {
                 //when
@@ -64,7 +64,7 @@ class RacingCarTest {
     void test3() {
 
         //given
-        RacingCar racingCar = new RacingCar("car");
+        Car racingCar = new Car("car");
 
         assertAll(
             () -> {
@@ -92,7 +92,7 @@ class RacingCarTest {
     @DisplayName("움직인 결과를 출력한다.")
     void test4() {
         //given
-        RacingCar racingCar = new RacingCar("name");
+        Car racingCar = new Car("name");
         //when
         racingCar.go();
         racingCar.go();
@@ -107,7 +107,7 @@ class RacingCarTest {
     void test5() {
         //when & then
         Assertions.assertThatThrownBy(
-            () -> new RacingCar("longName")
+            () -> new Car("longName")
         ).isInstanceOf(IllegalArgumentException.class);
     }
 
