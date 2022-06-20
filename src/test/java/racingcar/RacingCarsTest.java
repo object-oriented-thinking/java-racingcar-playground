@@ -82,15 +82,6 @@ class RacingCarsTest {
     }
 
     @Test
-    @DisplayName("자동차들을 경쟁시킨다.")
-    void test8() {
-        RacingCars racingCars = new RacingCars("pobi,crong,honux");
-        Assertions.assertDoesNotThrow(
-            racingCars::startRacing
-        );
-    }
-
-    @Test
     @DisplayName("자동차 이름이 고유해야 한다.")
     void test9() {
 

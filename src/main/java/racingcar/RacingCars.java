@@ -42,8 +42,4 @@ public class RacingCars {
 
         System.out.printf("%s이(가) 최종 우승했습니다.", carsName);
     }
-
-    public void startRacing() {
-        racingCars.forEach(Car::racing);
-    }
 }

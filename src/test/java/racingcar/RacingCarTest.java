@@ -69,21 +69,21 @@ class RacingCarTest {
         assertAll(
             () -> {
                 //when
-                racingCar.racing();
+                racingCar.racing(true);
                 //then
-                assertThat(racingCar.getDistance()).isBetween(0, 1);
+                assertThat(racingCar.getDistance()).isEqualTo(1);
             },
             () -> {
                 //when
-                racingCar.racing();
+                racingCar.racing(true);
                 //then
-                assertThat(racingCar.getDistance()).isBetween(0, 2);
+                assertThat(racingCar.getDistance()).isEqualTo(2);
             },
             () -> {
                 //when
-                racingCar.racing();
+                racingCar.racing(true);
                 //then
-                assertThat(racingCar.getDistance()).isBetween(0, 3);
+                assertThat(racingCar.getDistance()).isEqualTo(3);
             }
         );
     }

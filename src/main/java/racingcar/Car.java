@@ -30,6 +30,12 @@ public class Car {
         }
     }
 
+    public void racing(boolean condition) {
+        if (condition) {
+            go();
+        }
+    }
+
     public void printRacingStatus() {
         StringBuilder stringBuilder = new StringBuilder();
         for (int i = 0; i < distance.getDistance(); i++) {
