@@ -3,38 +3,32 @@ package racingcar.domain;
 import java.util.Random;
 
 public class Car {
-    private static final int START_LOCATION=0;
-    private final String name;
-    private int location;
+    private static final int MAX_BOUND=10;
+    private final Name name;
+    private final Location location;
 
-    public Car(String name) throws RuntimeException {
-        if(name.length()>5){
-            throw new RuntimeException("자동차 이름은 5글자 이내여야 합니다.");
-        }
-        if(name.trim().isEmpty()){
-            throw new RuntimeException("자동차 이름은 공백일 수 없습니다.");
-        }
+    public Car(Name name) {
         this.name = name;
-        this.location=START_LOCATION;
+        this.location=new Location();
     }
 
-    public int randomNumGenerator(){
+    protected int randomNumGenerator(){
         Random random = new Random();
-        return random.nextInt(10);
+        return random.nextInt(MAX_BOUND);
     }
 
     public void forward(){
         int randomNum = randomNumGenerator();
-        if(randomNum>4){
-            this.location++;
+        if(randomNum>=4){
+            this.location.forward();
         }
     }
 
-    public int getLocation() {
+    public Location getLocation() {
         return this.location;
     }
 
-    public String getName() {
+    public Name getName() {
         return this.name;
     }
 }

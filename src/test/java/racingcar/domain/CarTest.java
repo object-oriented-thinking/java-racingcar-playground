@@ -9,30 +9,35 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 public class CarTest {
-    Car car;
-    @BeforeEach
-    public void setUp(){
-        String name = "jeep";
-        car = new Car(name);
-    }
-
     @Test
     @DisplayName("5글자 초과시 Exception 발생 테스트")
     public void nameTest(){
-        String name = "sonata";
-        assertThatThrownBy(()-> new Car(name)).isInstanceOf(RuntimeException.class);
-    }
-
-    @Test
-    @DisplayName("랜덤 숫자가 0~9 사이인지 테스트")
-    public void randomNumTest(){
-        assertThat(car.randomNumGenerator()).matches(integer -> integer>=0 && integer<=9);
+        assertThatThrownBy(()-> new Car(new Name("sonata"))).isInstanceOf(IllegalArgumentException.class);
     }
 
     @Test
     @DisplayName("전진이 제대로 수행되는지 테스트")
     public void forwardTest(){
+        Car car = new Car(new Name("jeep")){
+            @Override
+            protected int randomNumGenerator() {
+                return 3;
+            }
+        };
         car.forward();
-        assertThat(car.getLocation()).isIn(0,1);
+        assertThat(car.getLocation()).isEqualTo(new Location(0));
+    }
+
+    @Test
+    @DisplayName("전진이 제대로 수행되는지 테스트2")
+    public void forwardTest2(){
+        Car car = new Car(new Name("jeep")){
+            @Override
+            protected int randomNumGenerator() {
+                return 4;
+            }
+        };
+        car.forward();
+        assertThat(car.getLocation()).isEqualTo(new Location(1));
     }
 }
