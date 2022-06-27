@@ -7,7 +7,7 @@ public class OutputView {
 
     public void outputCars(Cars cars){
         for(Car c: cars.getCarList()){
-            System.out.print(c.getName()+" : "+c.getLocation().makeBar()+"\n");
+            System.out.print(c.getName().getName()+" : "+c.getLocation().makeBar()+"\n");
         }
         System.out.println();
     }

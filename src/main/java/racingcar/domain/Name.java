@@ -4,13 +4,15 @@ import java.util.Objects;
 
 public class Name {
     private final String name;
+    private static final int MAX_LENGTH = 5;
 
     public Name(String name) throws IllegalArgumentException {
-        if (name.length() >= 5) {
-            throw new IllegalArgumentException("자동차 이름은 5글자 이내여야 합니다.");
-        }
-        if (name.trim().isEmpty()) {
+        if (name==null || name.trim().isEmpty()) {
             throw new IllegalArgumentException("자동차 이름은 공백일 수 없습니다.");
+        }
+
+        if (name.length() >= MAX_LENGTH) {
+            throw new IllegalArgumentException("자동차 이름은 5글자 이내여야 합니다.");
         }
         this.name = name;
     }
