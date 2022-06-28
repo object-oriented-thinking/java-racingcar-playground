@@ -1,5 +1,8 @@
+import game.Car;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -13,14 +16,12 @@ class CarTest {
         });
     }
 
-    @Test
-    @DisplayName("자동차 이름은 공백이거나 null 일수 없음")
-    void carName_isEmptyOrNull_Then_Exception() {
+    @ParameterizedTest
+    @ValueSource(strings = {" ","","a,   b,    c"})
+    @DisplayName("자동차 이름은 공백이 포함될수 없음")
+    void carName_isEmptyOrNull_Then_Exception(String carName) {
         assertThrows(IllegalArgumentException.class, () -> {
-            inputCarName(" ");
-            inputCarName(null);
-            inputCarName("");
-            inputCarName("a,   b,    c");
+            inputCarName(carName);
         });
     }
 
