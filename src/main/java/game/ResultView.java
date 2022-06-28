@@ -3,7 +3,6 @@ package game;
 import game.storage.CarStorage;
 
 public class ResultView {
-
     private int max =0;
     private final int initialGameCountValue;
     private final StringBuffer answer = new StringBuffer("");

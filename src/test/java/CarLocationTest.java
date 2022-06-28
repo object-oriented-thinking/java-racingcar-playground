@@ -5,7 +5,6 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class CarLocationTest {
-
     Car car = new Car("pobi");
 
     @Test

@@ -6,7 +6,6 @@ import game.util.Util;
 import java.util.Scanner;
 
 public class Game {
-
     private final Scanner sc = new Scanner(System.in);
     private CarStorage carStorage;
 

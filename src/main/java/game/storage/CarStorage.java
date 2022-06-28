@@ -8,7 +8,6 @@ import java.util.List;
 import static game.util.Util.generateRandomNumber;
 
 public class CarStorage {
-
     private final List<Car> cars;
 
     public CarStorage(List<Car> cars) {

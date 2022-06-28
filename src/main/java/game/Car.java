@@ -17,7 +17,6 @@ public class Car {
         if (isNotMatchCarNamePattern(carName) || carName.isBlank()) {
             throw new IllegalArgumentException("자동차 이름은 영문만 올수있습니다");
         }
-
         this.carName = carName;
     }
 
